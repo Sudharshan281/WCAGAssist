@@ -5,6 +5,39 @@ setTimeout(() => {
 function IdentifyPurpose() {
     let errors = 0;
     let fixed = 0;
+
+    const roleMap = {
+        'SECTION': 'region',
+        'FORM': 'form',
+        'NAV': 'navigation',
+        'MAIN': 'main',
+        'HEADER': 'banner',
+        'FOOTER': 'contentinfo',
+        'ASIDE': 'complementary',
+        'ARTICLE': 'article',
+        'ADDRESS': 'contentinfo',
+        'H1': 'heading',
+        'H2': 'heading',
+        'H3': 'heading',
+        'H4': 'heading',
+        'H5': 'heading',
+        'H6': 'heading',
+        'BUTTON': 'button',
+        'AUDIO': 'audio',
+        'VIDEO': 'video',
+        'FIGURE': 'figure',
+        'TABLE': 'table',
+        'TD': 'cell',
+        'TH': 'columnheader',
+        'TR': 'row',
+        'UL': 'list',
+        'OL': 'list',
+        'LI': 'listitem',
+        'DL': 'list',
+        'DT': 'term',
+        'DD': 'definition'
+    }
+
     $.fn.log = function () {
         console.log.apply(console, this);
         return this;
@@ -17,13 +50,24 @@ function IdentifyPurpose() {
                 $(this).prop("nodeName") == "MAIN") {
                 var checkRoleAttr = $(this).attr('role');
                 if (checkRoleAttr == undefined || checkRoleAttr == false || checkRoleAttr == null) {
-                    errors++;
-                    window.errorMessage("WCAG 1.3.6 (2.1,AAA)", "Using ARIA landmarks to identify regions of a page is Missing", "Add role='PURPOSE'", $(this));
+                    if(false){
+                        // new fix : add the apt role if it's there in map
+                        errors++;
+                        window.errorMessage("WCAG 1.3.6 (2.1,AAA)", "Using ARIA landmarks to identify regions of a page is Missing", "Add role from roleMap'", $(this));
 
-                    // Fix: Add role attribute
-                    $(this).attr('role', 'PURPOSE');
+                        $(this).attr('role', roleMap[$(this).prop("nodeName")]);
 
-                    fixed++;
+                        fixed++;
+                    }
+                    else{
+                        errors++;
+                        window.errorMessage("WCAG 1.3.6 (2.1,AAA)", "Using ARIA landmarks to identify regions of a page is Missing", "Add role='PURPOSE'", $(this));
+
+                        // Fix: Add role attribute
+                        $(this).attr('role', 'PURPOSE');
+
+                        fixed++;
+                    }
                     
                 }
             }

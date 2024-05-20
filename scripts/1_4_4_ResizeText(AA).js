@@ -16,9 +16,9 @@ function ResizeText() {
     for (let d = 0; d < italicTags.length; d++) {
         errors++;
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found italic tag", "Instead use strong or em tag", italicTags[d]);
-        const emElement = document.createElement('em')
-        emElement.innerHTML = italicTags[d].innerHTML
-        italicTags[d].parentNode.replaceChild(emElement, italicTags[d])
+        const emElement = document.createElement('em');
+        emElement.innerHTML = italicTags[d].innerHTML;
+        italicTags[d].parentNode.replaceChild(emElement, italicTags[d]);
         fixed++;
     }
 
@@ -27,9 +27,9 @@ function ResizeText() {
     for (let d = 0; d < boldTags.length; d++) {
         errors++;
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found bold tag", "Instead use strong or em tag", boldTags[d]);
-        const strongElement = document.createElement('strong')
-        strongElement.innerHTML = boldTags[d].innerHTML
-        boldTags[d].parentNode.replaceChild(strongElement, boldTags[d])
+        const strongElement = document.createElement('strong');
+        strongElement.innerHTML = boldTags[d].innerHTML;
+        boldTags[d].parentNode.replaceChild(strongElement, boldTags[d]);
         fixed++;
     }
 
@@ -38,14 +38,16 @@ function ResizeText() {
     for (let d = 0; d < fontTags.length; d++) {
         errors++;
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found font tag", "Remove it. Avoid using it.", fontTags[d]);
-        const pElement = document.createElement('p')
-        pElement.innerHTML = fontTags[d].innerHTML
+        const pElement = document.createElement('p');
+        pElement.innerHTML = fontTags[d].innerHTML;
         fontTags[d].parentNode.replaceChild(pElement, fontTags[d]);
         fixed++;
     }
 
-
     $(document).ready(function() {
+        // Get the main color of the website
+        const mainColor = window.getComputedStyle(document.body).backgroundColor;
+
         $('*').each(function() {
             console.log(`%LOG:%OUTSIDE THE if clause`, window.ruleStyle, window.infoStyle);
             if ($(this).prop("nodeName") == "DIV" ||
@@ -60,7 +62,7 @@ function ResizeText() {
                 $(this).prop("nodeName") == "H6" ||
                 $(this).prop("nodeName") == "INPUT" ||
                 $(this).prop("nodeName") == "Q" ||
-                $(this).prop("nodeName") == "BLACKQUOTE" ||
+                $(this).prop("nodeName") == "BLOCKQUOTE" ||
                 $(this).prop("nodeName") == "CODE" ||
                 $(this).prop("nodeName") == "PRE" ||
                 $(this).prop("nodeName") == "OL" ||
@@ -99,6 +101,14 @@ function ResizeText() {
                     plusBtn.style.border = 'none';
                     plusBtn.style.position = 'relative';
                     plusBtn.style.left = '15px';
+                    
+                    // Set the button color to the parent's text color
+                    const parentTextColor = window.getComputedStyle(this).color;
+                    plusBtn.style.color = 'black';
+
+                    // Set the button background color to the main color of the website
+                    plusBtn.style.backgroundColor = mainColor;
+
                     plusBtn.onclick = function() {
                         let parElement = this.parentElement;
                         let clickCount = parseInt(this.getAttribute('data-click-count')) || 0;
@@ -124,7 +134,6 @@ function ResizeText() {
                 }
             }
         });
-
     });
 
     console.log('%c$ADDED TEXT BLOCK ', ruleStyle);

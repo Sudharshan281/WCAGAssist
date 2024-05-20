@@ -45,7 +45,7 @@ function LinkPurpose() {
                 window.errorMessage("WCAG 2.4.4 (2.0,A)", "The anchor element with defined href is missing Aria-label", "Aria-label has to be defined", anchorTags[d]);
 
                 // Fix: Add aria-label attribute
-                anchorTags[d].setAttribute('aria-label', ' ');
+                anchorTags[d].setAttribute('aria-label', 'Link');
                 fixed++;
                 
             }

@@ -35,7 +35,7 @@ function HeadingsAndLabels() {
             nextHeader.replaceWith("<" + "H" + expectedNextLevel + ">" + nextHeader.html() + "</" + "H" + expectedNextLevel + ">");
             fixed++;
         }
-    }
+    }   
 
     chrome.runtime.sendMessage({ type: "results", script: "2_4_6_HeadingsAndLabels(AA)", data: { errors, fixed } });
 }
