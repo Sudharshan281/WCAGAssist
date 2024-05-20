@@ -9,6 +9,13 @@ function InfoAndRelationships() {
         console.log.apply(console, this);
         return this;
     };
+
+    function replaceElement(name, old){
+        var newTag = document.createElement(name);
+        newTag.innerHTML = old.innerHTML;
+        old.replaceWith(newTag);
+      }
+      
     var inputTags = document.querySelectorAll('input')
     for (var d = 0; d < inputTags.length; d++) {
         if (!inputTags[d].disabled) {

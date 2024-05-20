@@ -43,11 +43,7 @@ function executeScriptsInTab(tabId) {
   });
 }
 
-function replaceElement(name, old){
-  var newTag = document.createElement(name);
-  newTag.innerHTML = old.innerHTML;
-  old.replaceWith(newTag);
-}
+
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === "results") {
