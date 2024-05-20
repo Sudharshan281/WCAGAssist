@@ -50,7 +50,7 @@ function IdentifyPurpose() {
                 $(this).prop("nodeName") == "MAIN") {
                 var checkRoleAttr = $(this).attr('role');
                 if (checkRoleAttr == undefined || checkRoleAttr == false || checkRoleAttr == null) {
-                    if(false){
+                    if(roleMap[$(this).prop("nodeName")]){
                         // new fix : add the apt role if it's there in map
                         errors++;
                         window.errorMessage("WCAG 1.3.6 (2.1,AAA)", "Using ARIA landmarks to identify regions of a page is Missing", "Add role from roleMap'", $(this));
