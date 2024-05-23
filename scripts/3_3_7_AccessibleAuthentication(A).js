@@ -43,6 +43,7 @@ function AccessibleAuthentication() {
                 if (formLength > 0) {
                     var submitExists = false
                     var formArray = inputTags[a].form
+                    window.errorMessage("007this is form array: ", formArray)
                     for (var k = 0; k < formArray.length; k++) {
                         if (formArray[k].type == "submit") {
                             submitExists = true

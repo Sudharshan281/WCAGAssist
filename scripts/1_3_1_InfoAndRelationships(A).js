@@ -71,7 +71,8 @@ function InfoAndRelationships() {
                     window.errorMessage("WCAG 1.3.1 (2.0,A)", "Input element (of type text) is missing a label", "A label corresponding to this input element has to be added in order to describe the function or purpose of the control", inputTags[d]);
 
                     // Fix: Add label text
-                    var newLabelText = title_query(inputTags[d].innerText);
+                    // var newLabelText = title_query(inputTags[d].innerText);
+                    var newLabelText = inputTags[d].name || inputTags[d].placeholder || 'label'
                     var newLabel = document.createElement("label");
                     newLabel.setAttribute("for", inputTags[d].id);
                     newLabel.innerText = newLabelText;

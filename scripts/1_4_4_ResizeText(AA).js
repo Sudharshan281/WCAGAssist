@@ -49,38 +49,12 @@ function ResizeText() {
         const mainColor = window.getComputedStyle(document.body).backgroundColor;
 
         $('*').each(function() {
-            console.log(`%LOG:%OUTSIDE THE if clause`, window.ruleStyle, window.infoStyle);
-            if ($(this).prop("nodeName") == "DIV" ||
-                $(this).prop("nodeName") == "SPAN" ||
-                $(this).prop("nodeName") == "A" ||
-                $(this).prop("nodeName") == "P" ||
-                $(this).prop("nodeName") == "H1" ||
-                $(this).prop("nodeName") == "H2" ||
-                $(this).prop("nodeName") == "H3" ||
-                $(this).prop("nodeName") == "H4" ||
-                $(this).prop("nodeName") == "H5" ||
-                $(this).prop("nodeName") == "H6" ||
-                $(this).prop("nodeName") == "INPUT" ||
-                $(this).prop("nodeName") == "Q" ||
-                $(this).prop("nodeName") == "BLOCKQUOTE" ||
-                $(this).prop("nodeName") == "CODE" ||
-                $(this).prop("nodeName") == "PRE" ||
-                $(this).prop("nodeName") == "OL" ||
-                $(this).prop("nodeName") == "LI" ||
-                $(this).prop("nodeName") == "DL" ||
-                $(this).prop("nodeName") == "DT" ||
-                $(this).prop("nodeName") == "DD" ||
-                $(this).prop("nodeName") == "MARK" ||
-                $(this).prop("nodeName") == "INS" ||
-                $(this).prop("nodeName") == "DEL" ||
-                $(this).prop("nodeName") == "SUP" ||
-                $(this).prop("nodeName") == "SUB" ||
-                $(this).prop("nodeName") == "SMALL" ||
-                $(this).prop("nodeName") == "I" ||
-                $(this).prop("nodeName") == "BOLD" ||
-                $(this).prop("nodeName") == "B" ||
-                $(this).prop("nodeName") == "FONT" ||
-                $(this).prop("nodeName") == "EM") {
+            // Skip adding '+' (size increase) for links
+            if ($(this).closest('a').length) {
+                return true;
+            }
+            
+            if ($(this).is("div, span, p, h1, h2, h3, h4, h5, h6, input, q, blockquote, code, pre, ol, li, dl, dt, dd, mark, ins, del, sup, sub, small, i, bold, b, font, em")) {
                 var textRoot = ""
                 // console.log(`%LOG:%INSIDE THE if clause`, window.ruleStyle, window.infoStyle);
                 $(this).contents().filter(function() {
