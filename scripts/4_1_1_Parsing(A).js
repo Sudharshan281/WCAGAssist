@@ -53,7 +53,7 @@ function Parsing() {
             fixed++;
             
         }
-    }
+    }   
 
     chrome.runtime.sendMessage({ type: "results", script: "4_1_1_Parsing(A)", data: { errors, fixed } });  
 }

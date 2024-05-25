@@ -23,6 +23,7 @@ const scriptURLs = [
   "scripts/3_3_2_LabelsOrInstructions(A).js",
   "scripts/3_3_7_AccessibleAuthentication(A).js",
   "scripts/4_1_1_Parsing(A).js",
+  "scripts/4_1_2_NameRoleValue.js",
 ];
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {

@@ -77,7 +77,7 @@ function ResizeText() {
                     plusBtn.style.left = '15px';
                     
                     // Set the button color to the parent's text color
-                    const parentTextColor = window.getComputedStyle(this).color;
+                    // const parentTextColor = window.getComputedStyle(this).color;
                     plusBtn.style.color = 'black';
 
                     // Set the button background color to the main color of the website

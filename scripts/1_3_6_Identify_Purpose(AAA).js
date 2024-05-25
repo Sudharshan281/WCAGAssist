@@ -9,7 +9,7 @@ function IdentifyPurpose() {
     const roleMap = {
         'SECTION': 'region',
         'FORM': 'form',
-        'NAV': 'navigation',
+        'NAV': 'navigation',    
         'MAIN': 'main',
         'HEADER': 'banner',
         'FOOTER': 'contentinfo',

@@ -86,12 +86,12 @@ function LinkPurpose() {
 }
 
 function containsNonTextualContent(element) {
-    // Check if the element contains non-textual content such as images or other media
+    
     var children = element.childNodes;
     for (var i = 0; i < children.length; i++) {
         if (children[i].nodeType === 1 && children[i].nodeName !== "IMG" && children[i].nodeName !== "EMBED" && children[i].nodeName !== "OBJECT" && children[i].nodeName !== "VIDEO") {
-            return false; // If non-textual content found, return false
+            return false;
         }
     }
-    return true; // If only textual content found, return true
+    return true; 
 }

@@ -76,3 +76,9 @@ export function printMessage(message) {
     console.log(`%c${message}`, ruleStyle, errorStyle);
     console.log(`%c-----------------------------------------------------------------------------`, separatorStyle);
 }
+
+
+
+
+
+
